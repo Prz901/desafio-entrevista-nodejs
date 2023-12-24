@@ -14,6 +14,12 @@ export class UsersController {
     return users
   }
 
+  @Post('/find')
+  async getOneUser(@Body() user: { username: string }) {
+    const { username } = user
+    return await this.userService.findUser(username);
+  }
+
   @Post()
   createUser(@Body() CreateUserDto: CreateUserDto) {
     return this.userService.createUser(CreateUserDto)
