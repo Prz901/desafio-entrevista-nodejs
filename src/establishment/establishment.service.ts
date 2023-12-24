@@ -15,12 +15,12 @@ export class EstablishmentService {
   }
 
   async findEstablishment(id: number) {
-    const user = await this.establishmentRepository.findOne({
+    const establishment = await this.establishmentRepository.findOne({
       where: {
         id: id
       }
     })
-    return user
+    return establishment
   }
 
   async create(createEstablishment: CreateEstablishmentParams) {

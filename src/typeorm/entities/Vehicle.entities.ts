@@ -2,7 +2,6 @@ import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm'
 
 @Entity({ name: 'vehicles' })
 export class Vehicle {
-
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -13,15 +12,12 @@ export class Vehicle {
   model: string
 
   @Column()
-  address: string
-
-  @Column()
   color: string
 
   @Column()
   plate: string;
 
   @Column()
-  type: number;
+  type: string;
 
 }

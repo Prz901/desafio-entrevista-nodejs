@@ -25,3 +25,18 @@ export type UpdateEstablishmentParams = {
   qtdMotorcicle: number;
   qtdCar: number;
 }
+
+export type CreateVehicleParams = {
+  brand: string;
+  model: string;
+  color: string;
+  plate: string;
+  type: string;
+}
+
+export type UpdateVehicleParams = {
+  brand: string;
+  model: string;
+  color: string;
+  plate: string;
+}
