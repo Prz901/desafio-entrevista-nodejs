@@ -2,7 +2,7 @@ import { Injectable, NotFoundException, HttpStatus, HttpException } from '@nestj
 import { InjectRepository } from '@nestjs/typeorm'
 import { Establishment } from 'src/typeorm/entities/Establishment.entities';
 import { Vehicle } from 'src/typeorm/entities/Vehicle.entities';
-import { CreateVehicleParams, UpdateEstablishmentParams, UpdateVehicleParams } from 'src/utils/types';
+import { CreateVehicleParams, UpdateVehicleParams } from 'src/utils/types';
 import { Repository } from 'typeorm';
 
 @Injectable()
@@ -43,8 +43,8 @@ export class VehicleService {
             throw new HttpException('Bad Request', HttpStatus.BAD_REQUEST)
           }
         case 'motorcycle':
-          if (establishment.qtdCar > 0) {
-            establishment.qtdCar = establishment.qtdCar - 1
+          if (establishment.qtdMotorcycle > 0) {
+            establishment.qtdMotorcycle = establishment.qtdMotorcycle - 1
           } else {
             throw new HttpException('Bad Request', HttpStatus.BAD_REQUEST)
           }

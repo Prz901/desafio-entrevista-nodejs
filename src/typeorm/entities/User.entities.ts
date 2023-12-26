@@ -1,4 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, BeforeInsert } from 'typeorm'
+import { ApiProperty } from '@nestjs/swagger'
 
 import { hashSync } from 'bcrypt'
 
@@ -6,12 +7,15 @@ import { hashSync } from 'bcrypt'
 export class User {
 
   @PrimaryGeneratedColumn()
-  id!: number;
+  @ApiProperty()
+  id: number;
 
   @Column()
-  username!: string
+  @ApiProperty()
+  username: string
 
   @Column()
+  @ApiProperty()
   password: string
 
   @BeforeInsert()

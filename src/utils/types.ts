@@ -3,6 +3,11 @@ export type CreateUserParams = {
   password: string;
 }
 
+export type UserLoginParams = {
+  username: string;
+  password: string;
+}
+
 export type UpdateUserParams = {
   username: string;
   password: string;
@@ -12,7 +17,7 @@ export type CreateEstablishmentParams = {
   name: string;
   cnpj: string;
   address: string;
-  phone: string
+  phone: string;
   qtdMotorcycle: number;
   qtdCar: number;
 }
@@ -21,7 +26,7 @@ export type UpdateEstablishmentParams = {
   name: string;
   cnpj: string;
   address: string;
-  phone: string
+  phone: string;
   qtdMotorcycle: number;
   qtdCar: number;
 }
