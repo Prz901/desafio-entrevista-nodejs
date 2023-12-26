@@ -13,7 +13,7 @@ export type CreateEstablishmentParams = {
   cnpj: string;
   address: string;
   phone: string
-  qtdMotorcicle: number;
+  qtdMotorcycle: number;
   qtdCar: number;
 }
 
@@ -22,7 +22,7 @@ export type UpdateEstablishmentParams = {
   cnpj: string;
   address: string;
   phone: string
-  qtdMotorcicle: number;
+  qtdMotorcycle: number;
   qtdCar: number;
 }
 

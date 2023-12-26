@@ -19,9 +19,9 @@ export class VehicleController {
     return await this.vehicleService.findVehicle(id)
   }
 
-  @Post()
-  async create(@Body() createVehicle: CreateVehicleDto) {
-    return await this.vehicleService.create(createVehicle)
+  @Post(':id')
+  async create(@Param('id', ParseIntPipe) id: number, @Body() createVehicle: CreateVehicleDto) {
+    return await this.vehicleService.create(id, createVehicle)
   }
 
   @Put(':id')

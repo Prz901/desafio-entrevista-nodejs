@@ -11,7 +11,13 @@ export class EstablishmentService {
   ) { }
 
   async findAll() {
-    return await this.establishmentRepository.find()
+    return await this.establishmentRepository.find(
+      {
+        relations: {
+          vehicle: true,
+        },
+      }
+    )
   }
 
   async findEstablishment(id: number) {
@@ -24,7 +30,7 @@ export class EstablishmentService {
   }
 
   async create(createEstablishment: CreateEstablishmentParams) {
-    const newEstablishment = await this.establishmentRepository.create({ name: createEstablishment.name, cnpj: createEstablishment.cnpj, address: createEstablishment.address, phone: createEstablishment.phone, qtdCar: createEstablishment.qtdCar, qtdMotorcicle: createEstablishment.qtdMotorcicle })
+    const newEstablishment = await this.establishmentRepository.create({ name: createEstablishment.name, cnpj: createEstablishment.cnpj, address: createEstablishment.address, phone: createEstablishment.phone, qtdCar: createEstablishment.qtdCar, qtdMotorcycle: createEstablishment.qtdMotorcycle })
 
     return await this.establishmentRepository.save(newEstablishment)
   }

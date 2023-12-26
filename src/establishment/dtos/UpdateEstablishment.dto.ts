@@ -14,7 +14,7 @@ export class UpdateEstablishmentDto {
   readonly phone: string
 
   @IsNotEmpty()
-  readonly qtdMotorcicle: number
+  readonly qtdMotorcycle: number
 
   @IsNotEmpty()
   readonly qtdCar: number

@@ -1,4 +1,5 @@
 import { IsNotEmpty } from '@nestjs/class-validator'
+import { IsString } from 'class-validator';
 
 export class CreateVehicleDto {
   @IsNotEmpty()
@@ -14,5 +15,6 @@ export class CreateVehicleDto {
   readonly plate: string;
 
   @IsNotEmpty()
+  @IsString()
   readonly type: string;
 }
