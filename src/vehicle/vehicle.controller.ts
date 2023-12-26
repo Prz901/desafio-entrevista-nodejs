@@ -30,10 +30,10 @@ export class VehicleController {
     return await this.vehicleService.update(id, body)
   }
 
-  @Delete(':id')
+  @Delete('/:idEstablishment/:id')
   @HttpCode(HttpStatus.NO_CONTENT)
-  async destroy(@Param('id', ParseIntPipe) id: number) {
-    return await this.vehicleService.destroy(id)
+  async destroy(@Param('idEstablishment', ParseIntPipe) idEstablisment: number, @Param('id', ParseIntPipe) idVehicle: number) {
+    return await this.vehicleService.destroy(idEstablisment, idVehicle)
   }
 
 }
