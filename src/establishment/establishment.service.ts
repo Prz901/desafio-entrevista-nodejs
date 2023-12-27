@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm'
 import { Establishment } from 'src/typeorm/entities/Establishment.entities';
 import { CreateEstablishmentParams, UpdateEstablishmentParams } from 'src/utils/types';
@@ -40,6 +40,14 @@ export class EstablishmentService {
   }
 
   async destroy(id: number) {
+    const establishment = await this.establishmentRepository.findOne({
+      where: {
+        id: id
+      }
+    })
+    if (!establishment) {
+      throw new NotFoundException(`Establishment iD ${id} not found`);
+    }
     return await this.establishmentRepository.delete({ id })
   }
 

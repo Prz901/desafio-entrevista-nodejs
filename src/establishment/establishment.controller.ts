@@ -45,7 +45,7 @@ export class EstablishmentController {
 
   @Delete(':id')
   @HttpCode(HttpStatus.NO_CONTENT)
-  @ApiOperation({ summary: 'Delete um estabelecimento' })
+  @ApiOperation({ summary: 'Deleta um estabelecimento' })
   async destroy(@Param('id', ParseIntPipe) id: number) {
     await this.establishmentService.destroy(id);
   }

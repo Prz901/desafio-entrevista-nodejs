@@ -28,18 +28,18 @@ export class VehicleController {
     return await this.vehicleService.findVehicle(id)
   }
 
-  @Post(':idEstablisment')
-  @ApiOperation({ summary: 'Cria um novo veículo para o estabelecimento na vaga disponível' })
-  @ApiResponse({ status: 200, description: "Veículo criado e associado com sucesso", type: CreateVehicleSwagger })
-  async create(@Param('idEstablishment', ParseIntPipe) idEstablisment: number, @Body() createVehicle: CreateVehicleDto) {
-    return await this.vehicleService.create(idEstablisment, createVehicle)
-  }
-
   @Put(':id')
   @ApiOperation({ summary: 'Edita informação do veículo' })
   async update(@Param('id', ParseIntPipe) id: number,
     @Body() body: UpdateVehicleDto,) {
     return await this.vehicleService.update(id, body)
+  }
+
+  @Post(':idEstablisment')
+  @ApiOperation({ summary: 'Cria um novo veículo para o estabelecimento na vaga disponível' })
+  @ApiResponse({ status: 200, description: "Veículo criado e associado com sucesso", type: CreateVehicleSwagger })
+  async create(@Param('idEstablishment', ParseIntPipe) idEstablisment: number, @Body() createVehicle: CreateVehicleDto) {
+    return await this.vehicleService.create(idEstablisment, createVehicle)
   }
 
   @Delete('/:idEstablishment/:id')

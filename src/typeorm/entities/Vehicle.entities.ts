@@ -28,7 +28,9 @@ export class Vehicle {
   @ApiProperty()
   type: string;
 
-  @ManyToOne(() => Establishment, (establishment) => establishment)
+  @ManyToOne(() => Establishment, (establishment) => establishment, {
+    onDelete: "CASCADE",
+  })
   establishment: Establishment
 
 }
